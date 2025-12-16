@@ -1,0 +1,77 @@
+GET
+	
+scheme
+	https
+host
+	nbkjw.suibe.edu.cn
+filename
+	/course-selection-api/api/v1/student/course-select/predicate-response/2238328/2b26590d-d9ca-11f0-baca-5ab7feee6609
+地址
+	172.30.1.151:443
+状态
+200
+版本HTTP/2
+传输914 字节（大小 331 字节）
+Referrer 策略strict-origin-when-cross-origin
+DNS 解析系统
+
+	
+access-control-allow-credentials
+	true
+access-control-allow-methods
+	GET,POST,OPTIONS,HEAD
+access-control-allow-origin
+	https:/
+access-control-expose-headers
+	Authorization
+cache-control
+	no-store
+content-encoding
+	gzip
+content-type
+	application/json;charset=UTF-8
+date
+	Mon, 15 Dec 2025 15:15:30 GMT
+server
+	nginx/1.22.1
+set-cookie
+	srv_id=023753d8b7d4ab40e2581c02194a39b6; Domain=nbkjw.suibe.edu.cn; Expires=Tue, 16-Dec-2025 03:15:30 GMT; Path=/eams
+set-cookie
+	rememberMe=deleteMe; Path=/course-selection-api; Max-Age=0; Expires=Sun, 14-Dec-2025 15:24:37 GMT
+vary
+	Accept-Encoding
+x-application-context
+	application
+X-Firefox-Spdy
+	h2
+	
+Accept
+	application/json, text/plain, */*
+Accept-Encoding
+	gzip, deflate, br, zstd
+Accept-Language
+	zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Authorization
+	eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXB3aXNkb20iLCJleHAiOjE3NjU4NTUzMjUsInVzZXJuYW1lIjoiMjMwNjIyMDIifQ.pIiZu6XOoUrYgu9n4CfNVCtGGPox6Tr1yvwTzifW2YE
+Connection
+	keep-alive
+Cookie
+	arialoadData=false; ariauseGraymode=false; iPlanetDirectoryPro=C2MQntvVNm3ZaCcSLp0lcP; cs-course-select-student-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXB3aXNkb20iLCJleHAiOjE3NjU4NTUzMjUsInVzZXJuYW1lIjoiMjMwNjIyMDIifQ.pIiZu6XOoUrYgu9n4CfNVCtGGPox6Tr1yvwTzifW2YE
+Host
+	nbkjw.suibe.edu.cn
+Referer
+	https://nbkjw.suibe.edu.cn/course-selection/
+Sec-Fetch-Dest
+	empty
+Sec-Fetch-Mode
+	cors
+Sec-Fetch-Site
+	same-origin
+TE
+	trailers
+User-Agent
+	Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0) Gecko/20100101 Firefox/146.0
+
+
+response
+{"result":0,"message":null,"data":{"id":"2b26ce71-d9ca-11f0-8dab-ce2bc0fe9b8f","requestId":"2b26590d-d9ca-11f0-baca-5ab7feee6609","exception":null,"errorMessage":null,"success":true,"result":{"361535":{"textZh":"选课未开放或已结束","textEn":"Course selection is not open or closed","text":"选课未开放或已结束"}}}}
