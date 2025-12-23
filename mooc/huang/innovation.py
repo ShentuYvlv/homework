@@ -14,17 +14,17 @@ base_api_url = "https://nbkjw.suibe.edu.cn/course-selection-api/api/v1/student/c
 headers = {
     "Accept": "application/json, text/plain, */*",
     "Content-Type": "application/json",
-    "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXB3aXNkb20iLCJleHAiOjE3NjYwNzUxMDQsInVzZXJuYW1lIjoiMjMwNjIyMDIifQ.whRqY06IFCpNpwGT6cJ6-GMg4vxOfthT51LO9FPeR_o",
+    "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXB3aXNkb20iLCJleHAiOjE3NjU5MDI5MzksInVzZXJuYW1lIjoiMjMwNjIyMDIifQ._RpH4NjjchNRC_LnYUjNQwD6i9AwNj7G_7mgrOv55yE",
 
-    "Cookie": "arialoadData=false; ariauseGraymode=false; iPlanetDirectoryPro=R4bnSkC21RRlYiNuW9hSxW; cs-course-select-student-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXB3aXNkb20iLCJleHAiOjE3NjYwNzUxMDQsInVzZXJuYW1lIjoiMjMwNjIyMDIifQ.whRqY06IFCpNpwGT6cJ6-GMg4vxOfthT51LO9FPeR_o",
+    "Cookie": "arialoadData=false; ariauseGraymode=false; iPlanetDirectoryPro=yIHeOf1IzLezn1Uo9q0DAy; cs-course-select-student-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXB3aXNkb20iLCJleHAiOjE3NjU5MDI5MzksInVzZXJuYW1lIjoiMjMwNjIyMDIifQ._RpH4NjjchNRC_LnYUjNQwD6i9AwNj7G_7mgrOv55yE",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0) Gecko/20100101 Firefox/146.0",
     "Referer": "https://nbkjw.suibe.edu.cn/course-selection/",
     "Origin": "https://nbkjw.suibe.edu.cn"
 }
 
-#文化历史与国际视野
-lesson_ids = [361523, 361794, 361768, 361743, 361438, 361793, 361214, 361211, 361425, 361424, 361548, 361745, 361196,
- 361195, 361441, 361015, 361013, 361748, 361742]
+#创新创业拓展
+lesson_ids = [360628, 360627, 360626]
+
 
 def process_lesson(lesson_id):
     """
