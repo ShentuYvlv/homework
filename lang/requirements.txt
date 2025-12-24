@@ -1,0 +1,4 @@
+modelscope
+chromadb 
+langchain-huggingface 
+sentence-transformers
