@@ -90,7 +90,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+lang/models
 # Spyder project settings
 .spyderproject
 .spyproject
