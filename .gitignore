@@ -97,7 +97,7 @@ lang/models
 
 # Rope project settings
 .ropeproject
-
+*.WeDrive
 # mkdocs documentation
 /site
 

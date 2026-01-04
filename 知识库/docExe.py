@@ -1,4 +1,7 @@
 import os
+import shutil
+import subprocess
+import tempfile
 import time
 from markitdown import MarkItDown
 
@@ -8,7 +11,12 @@ try:
     HAS_WIN32 = True
 except ImportError:
     HAS_WIN32 = False
-    print("[!] 未安装 pywin32，无法处理 .doc 格式。请运行: pip install pywin32")
+
+SOFFICE_BIN = shutil.which("soffice") or shutil.which("libreoffice")
+HAS_SOFFICE = SOFFICE_BIN is not None
+
+if not HAS_WIN32 and not HAS_SOFFICE:
+    print("[!] 未检测到 .doc 转换器。Windows 请安装 pywin32；macOS/Linux 请安装 LibreOffice 后重试。")
 
 # --- 配置 ---
 SOURCE_DIR = "."       # 当前目录
@@ -32,9 +40,36 @@ def doc_to_docx(doc_path):
     使用 Word COM 接口将 .doc 转为 .docx 临时文件
     返回临时文件的绝对路径，如果失败返回 None
     """
-    if not HAS_WIN32:
+    if not HAS_WIN32 and not HAS_SOFFICE:
         return None
-    
+
+    if HAS_SOFFICE and not HAS_WIN32:
+        abs_doc_path = os.path.abspath(doc_path)
+        temp_dir = tempfile.mkdtemp(prefix="doc_convert_")
+        try:
+            cmd = [
+                SOFFICE_BIN,
+                "--headless",
+                "--convert-to",
+                "docx",
+                "--outdir",
+                temp_dir,
+                abs_doc_path,
+            ]
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            output_name = os.path.splitext(os.path.basename(abs_doc_path))[0] + ".docx"
+            temp_docx_path = os.path.join(temp_dir, output_name)
+
+            if result.returncode != 0 or not os.path.exists(temp_docx_path):
+                stderr = (result.stderr or "").strip()
+                print(f"\n    [LibreOffice转换错误] {stderr or '未知错误'}")
+                return None
+
+            return temp_docx_path
+        except Exception as e:
+            print(f"\n    [LibreOffice转换错误] {e}")
+            return None
+
     word = None
     try:
         # 必须使用绝对路径
@@ -74,9 +109,6 @@ def main():
     success_count = 0
     fail_count = 0
 
-    # 为了加快 .doc 处理速度，只在需要时启动 Word
-    word_app = None
-
     for root, dirs, files in os.walk(SOURCE_DIR):
         if OUTPUT_DIR in root.split(os.sep):
             continue
@@ -108,6 +140,12 @@ def main():
                         
                         # 3. 删除临时文件
                         os.remove(temp_docx)
+                        temp_dir = os.path.dirname(temp_docx)
+                        if os.path.basename(temp_dir).startswith("doc_convert_"):
+                            try:
+                                os.rmdir(temp_dir)
+                            except OSError:
+                                pass
                         
                     except Exception as e:
                         print(f" [失败] {e}")
